@@ -29,7 +29,9 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/", authRoute);
-
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
 app.post('/update-payment/:userId', (req, res) => {
   const userId = parseInt(req.params.userId);
   
