@@ -19,7 +19,7 @@ mongoose
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"],
+    origin: ["*"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -32,17 +32,17 @@ app.use("/", authRoute);
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
-app.post('/update-payment/:userId', (req, res) => {
-  const userId = parseInt(req.params.userId);
+// app.post('/update-payment/:userId', (req, res) => {
+//   const userId = parseInt(req.params.userId);
   
-  // Update the user's payment status in the database
-  // Set user.paid = true for the specified user
+//   // Update the user's payment status in the database
+//   // Set user.paid = true for the specified user
   
-  // Generate a new JWT token with the user's payment status
-  const token = createSecretToken(userId, true);
+//   // Generate a new JWT token with the user's payment status
+//   const token = createSecretToken(userId, true);
   
-  res.json({ token });
-});
+//   res.json({ token });
+// });
 
 app.post('/initiate-payment', async (req, res) => {
   try {
